@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
+        "tamasfe.even-better-toml",
+        "serayuzgur.crates",
+        "dustypomerleau.rust-syntax",
+        "jscearcy.rust-doc-viewer",
+        "yzhang.markdown-all-in-one",
+        "bierner.github-markdown-preview",
+        "github.vscode-github-actions"
+    ]
+}

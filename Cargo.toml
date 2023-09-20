@@ -1,0 +1,10 @@
+[package]
+name = "arithmetic-problems-generator"
+version = "0.1.0"
+edition = "2021"
+authors = ["PeterWang-dev <PeterWang030908@hotmail.com>", "Helios <772389619@qq.com>"]
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
