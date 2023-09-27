@@ -114,7 +114,7 @@
 - [prexel](https://crates.io/crates/prexel)
   ：一个用于计算数学表达式的库。
 
-[^1]: \[Z/OL\]//表达式求值 - OI Wiki. OI Wiki, 2023.
+[^1]: \[Z/OL\]//表达式求值. OI Wiki, 2023.
     <https://oi-wiki.org/misc/expression/>.
 
 #### 分数支持
