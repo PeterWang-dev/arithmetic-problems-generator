@@ -2,20 +2,30 @@ use arithmetic_problems_generator::{CheckerConfig, Config, GeneratorConfig};
 use clap::ArgMatches;
 
 pub fn to_config(matches: ArgMatches) -> Result<Config, Box<dyn std::error::Error>> {
+    // when there is a range parameter
+    // range must have where this program is running to generate
     if matches.contains_id("range") {
         //check the value of range is valid
         let range = match matches.get_one::<String>("range").unwrap().parse::<u32>() {
             Ok(value) => value,
+            // illegal value is not allowed
             Err(_) => return Err(format!("argument conversion exception").into()),
         };
 
+        // when there is a num parameter
         if matches.contains_id("num") {
+            //check the value of num is valid
             let num = match matches.get_one::<String>("num").unwrap().parse::<u32>() {
                 Ok(value) => value,
                 Err(_) => return Err(format!("argument conversion exception").into()),
             };
+            // the num and range are given
+            // new the GeneratorConfig
             return Ok(Config::Generator(GeneratorConfig::new(num, (0, range))));
         } else {
+            // the range is given,but the num is missing 
+            // num is given the default value 10
+            // new the GeneratorConfig 
             return Ok(Config::Generator(GeneratorConfig::new(10, (0, range))));
         }
     } 
@@ -24,11 +34,15 @@ pub fn to_config(matches: ArgMatches) -> Result<Config, Box<dyn std::error::Erro
         // get exercise_file and answe_file from the args
         let exercise_file = matches.get_one::<String>("exercise_file").unwrap().clone();
         let answer_file = matches.get_one::<String>("answer_file").unwrap().clone();
+        //new the CheckerConfig
         return Ok(Config::Checker(CheckerConfig::from_str(
             &exercise_file,
             &answer_file,
         )));
-    } else {
+    }
+    // illegal args 
+    // return ERROR
+    else {
         Err(format!("argument missing").into())
     }
 }
