@@ -50,7 +50,7 @@ mod tests {
         .version("0.1.0")
         .arg(
             Arg::new("num")
-                .help("The number of generated questions")
+                .help("The number of generated problems")
                 .short('n')
                 .required(false),
         )
