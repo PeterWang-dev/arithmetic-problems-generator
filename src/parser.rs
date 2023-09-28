@@ -122,26 +122,6 @@ mod tests {
     }
 
     #[test]
-    fn test_to_config_arg_num() {
-        let command = init();
-
-        let args = vec!["arithmetic-problems-generator", "-n", "11"];
-
-        // Manually create a clap::ArgMatches object
-        let matches = command.get_matches_from(&args);
-
-        let range = match to_config(matches).unwrap() {
-            Config::Generator(generator_config) => (
-                generator_config.range().0,
-                generator_config.range().1,
-                generator_config.number(),
-            ),
-            Config::Checker(_) => (0, 0, 0),
-        };
-        assert_eq!(range, (0, 100, 11));
-    }
-
-    #[test]
     fn test_to_config_exercise_and_num() {
         let command = init();
 
