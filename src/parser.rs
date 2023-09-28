@@ -18,13 +18,10 @@ pub fn to_config(matches: ArgMatches) -> Result<Config, Box<dyn std::error::Erro
         } else {
             return Ok(Config::Generator(GeneratorConfig::new(10, (0, range))));
         }
-    } else if matches.contains_id("num") && !matches.contains_id("range") {
-        let num = match matches.get_one::<String>("num").unwrap().parse::<u32>() {
-            Ok(value) => value,
-            Err(_) => return Err(format!("argument conversion exception").into()),
-        };
-        return Ok(Config::Generator(GeneratorConfig::new(num, (0, 100))));
-    } else if matches.contains_id("exercise_file") && matches.contains_id("answer_file") {
+    } 
+    //exercise_file and answer_file must have where this program is running to check the answer
+    else if matches.contains_id("exercise_file") && matches.contains_id("answer_file") {
+        // get exercise_file and answe_file from the args
         let exercise_file = matches.get_one::<String>("exercise_file").unwrap().clone();
         let answer_file = matches.get_one::<String>("answer_file").unwrap().clone();
         return Ok(Config::Checker(CheckerConfig::from_str(
