@@ -51,7 +51,7 @@ pub fn to_config(matches: ArgMatches) -> Result<Config, Box<dyn std::error::Erro
 mod tests {
     use std::path::PathBuf;
 
-    use super::to_config;
+    use super::*;
     use arithmetic_problems_generator::{CheckerConfig, Config};
     use clap::{Arg, ArgGroup, Command};
 
