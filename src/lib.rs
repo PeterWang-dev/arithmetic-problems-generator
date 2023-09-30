@@ -1,3 +1,5 @@
+pub mod expression_generator;
+
 use std::path::PathBuf;
 
 pub enum Config {
